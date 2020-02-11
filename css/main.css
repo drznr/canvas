@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+}
+
+.options {
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+    background-color: whitesmoke;
+}
+
+.canvas-container {
+    max-width: 1080px;
+    margin: 0 auto;
+    height: 80vh;
+}
+
+#myCanvas {
+    border: 20px groove lightcoral;
+}
+
+@media only screen and (min-width: 900px) {
+    .options {
+        max-width: 50%;
+    }
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body onload="onInit()">
+
+    <header class="header">
+        <div class="options">
+            <input type="color" name="color" onchange="onOptsChange(this)" />
+            <select name="shape" onchange="onOptsChange(this)">
+                <option value="square">Squares</option>
+                <option value="triangle">Triangles</option>
+                <option value="circle">Circles</option>
+                <option value="line">Lines</option>
+            </select>
+            <button onclick="downloadCanvas()">Save</button>
+            <button onclick="_clearCanvas()">Clear</button>
+            <button onclick="shareCanvas()">Share</button>
+        </div>
+    </header>
+
+    <main class="canvas-container">
+        <canvas id="myCanvas">
+            Update your browser to enjoy HTML5 Canvas!
+        </canvas>
+    </main>
+
+    <script src="js/canvas-service.js"></script>
+    <script src="js/controler.js"></script>
+</body>
+</html>
