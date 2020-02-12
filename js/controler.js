@@ -34,8 +34,7 @@ function downloadCanvas() {
     link.remove();
 }
 
-function draw(ev) {
-    let { offsetX, offsetY } = ev;
+function draw(offsetX, offsetY) {
     switch (getCurrShape()) {
         case 'square':
             _drawRect(offsetX, offsetY, getRandomIntInclusive(50, 100), getRandomIntInclusive(50, 100));
@@ -56,16 +55,24 @@ function draw(ev) {
 
 function handleCanvasEvents() {
     gCanvas.addEventListener("touchstart", (ev) => {
-        draw(ev);
+        let rect = ev.target.getBoundingClientRect();
+       let offsetX = ev.targetTouches[0].pageY - rect.top;
+       let offsetY = ev.targetTouches[0].pageX - rect.left;
+        draw(offsetX, offsetY);
     });
     gCanvas.addEventListener("touchmove", (ev) => {
-        draw(ev);
+        let rect = ev.target.getBoundingClientRect();
+        let offsetX = ev.targetTouches[0].pageY - rect.top;
+        let offsetY = ev.targetTouches[0].pageX - rect.left;
+        draw(offsetX, offsetY);
     });
 
     gCanvas.addEventListener("mousedown", (ev) => {
-        draw(ev);
+        let { offsetX, offsetY } = ev;
+        draw(offsetX, offsetY);
         gCanvas.onmousemove = (ev) => {
-            draw(ev);
+            let { offsetX, offsetY } = ev;
+            draw(offsetX, offsetY);
         }
     });
     gCanvas.addEventListener("mouseup", () => {
